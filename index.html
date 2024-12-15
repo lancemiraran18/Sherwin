@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Sherwin Godala</title>
+    <!-- Font Awesome CDN for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Resetting margin, padding, and box-sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #F3E5AB; /* Vanilla background */
+            color: #4E3629; /* Carob text */
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            color: #4E3629; /* Carob for headings */
+        }
+
+        a {
+            text-decoration: none;
+            color: #4E3629; /* Carob text color */
+        }
+
+        /* Global Styles */
+        section {
+            padding: 60px 20px;
+            margin-bottom: 50px;
+            background: #F8E1A2; /* Lighter vanilla tone for section background */
+            border: 1px solid #D7B68C; /* Light carob border */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Header Section */
+        header {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #4E3629; /* Carob header background */
+            padding: 20px 30px;
+            border-bottom: 1px solid #D7B68C; /* Carob border */
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #F3E5AB; /* Vanilla text color for links */
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 10px 15px;
+            text-transform: uppercase;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #D7B68C; /* Carob hover color */
+            color: #4E3629;
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            height: 80vh;
+            padding: 20px;
+            background: linear-gradient(135deg, #F3E5AB, #F8E1A2); /* Vanilla gradient */
+            color: #4E3629; /* Carob text */
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            animation: slideInRight 1s ease-out;
+        }
+
+        .hero .buttons a {
+            padding: 12px 30px;
+            font-size: 1rem;
+            color: #F3E5AB;
+            background-color: #4E3629; /* Carob button background */
+            border-radius: 30px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            margin-right: 15px;
+        }
+
+        .hero .buttons a:hover {
+            background-color: #D7B68C; /* Carob button hover */
+            color: #4E3629;
+            transform: translateY(-5px);
+        }
+
+        .hero img {
+            border-radius: 15px;
+            max-width: 400px;
+            height: auto;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* About Section */
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Activities Section */
+        .activities h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .activities p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .activities a {
+            padding: 12px 25px;
+            background: #4E3629; /* Carob button */
+            color: #F3E5AB; /* Vanilla text */
+            text-transform: uppercase;
+            font-size: 1rem;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .activities a:hover {
+            background-color: #D7B68C; /* Carob hover button */
+            color: #4E3629;
+            transform: translateY(-3px);
+        }
+
+        /* Contact Section */
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .contact .email a {
+            color: #F3E5AB;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact .email a:hover {
+            color: #4E3629;
+        }
+
+        /* Footer Section */
+        footer {
+            background: #4E3629; /* Carob footer */
+            color: #F3E5AB;
+            padding: 20px;
+            text-align: center;
+            font-size: 1rem;
+            border-top: 1px solid #D7B68C; /* Light carob border */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero img {
+                max-width: 80%;
+                margin-top: 20px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about h2, .activities h2, .contact h2 {
+                font-size: 2rem;
+            }
+
+            .about p, .activities p, .contact p {
+                font-size: 1rem;
+            }
+
+            .hero .buttons a {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about h2, .activities h2, .contact h2 {
+                font-size: 1.8rem;
+            }
+
+            .about p, .activities p, .contact p {
+                font-size: 0.9rem;
+            }
+
+            .hero .buttons a {
+                font-size: 0.8rem;
+                padding: 8px 15px;
+            }
+        }
+
+        .evo {
+            position: relative;
+            top: 20px;
+        }
+
+        .email {
+            color: #F3E5AB;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="#about"><i class="fas fa-user"></i> About Me</a></li>
+            <li><a href="#activities"><i class="fas fa-clipboard-list"></i> Activities</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="hero">
+    <div class="content">
+        <h1>Hello, I'm Sherwin Godala</h1>
+        <p>BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY <br>1ST YEAR BLOCK B.</p>
+
+        <div class="buttons">
+            <a href="#about"><i class="fas fa-info-circle"></i> Learn More</a>
+            <a href="#activities"><i class="fas fa-eye"></i> See Activities</a>
+        </div>
+    </div>
+    <img src="b1bba04c-9251-4a42-a0db-95409b7d2a9a.jpeg" alt="Sherwin Godala">
+</section>
+
+<section class="about" id="about">
+    <h2><i class="fas fa-user-circle"></i> About Me</h2>
+    <p>I'm Sherwin G. Godala
+        I am 19 years old. Study in Veritas College of Irosin
+        My Course is Bachelor of Science Technology 
+        I'm currently living in Brgy. Manjumlad Matnog, Sorsogon. I chose this course because I want to learn more about technology like coding and software developers as well as how to compete in different countries, how to interact with them and to improve my skills so that I can learn more because One of my dreams is to be able to work in big companies about technology, so this is the course I chose so that I can fulfill my dream of becoming a software developer, Business Marketing and so that I can save my family from poverty.</p>
+</section>
+
+<section class="activities" id="activities">
+    <h2><i class="fas fa-briefcase"></i> Activities</h2>
+    <p>AUTOBIOGRAPHY</p>
+    <div>
+        <a href="Angela_Fulgar_Autobiography.docx" download><i class="fas fa-download"></i> Download My DOCX</a>
+    </div>
+    <p class="evo">GESTS VIDEO PRESENTATION</p>
+    <div>
+        <a href="https://youtu.be/z-_74os9cr0?si=PUrJ0dCj02sdKRf5" target="_blank"><i class="fas fa-video"></i> Video Presentation</a>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2><i class="fas fa-phone-alt"></i> Contact</h2>
+    <p class="email"><i class="fas fa-envelope"></i> Email: <a class="email" href="mailto:sherwingodala@gmail.com">sherwingodala@gmail.com </a></p>
+    <p><i class="fas fa-phone"></i> Phone: 09350183638</p>
+</section>
+
+<footer>
+    <p>&copy; 2024 Sherwin Godala. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
